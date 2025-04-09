@@ -3,6 +3,7 @@ package edu.ucsb.cs156.spring.hello;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.beans.Transient;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 
@@ -22,10 +23,28 @@ public class DeveloperTest {
 
     @Test
     public void getName_returns_correct_name() {
-        assertEquals("Junjie L.", Developer.getName());
+        assertEquals("Junjie", Developer.getName());
     }
 
-    // TODO: Add additional tests as needed to get to 100% jacoco line coverage, and
-    // 100% mutation coverage (all mutants timed out or killed)
+    @Test
+    public void getGithubId_returns_correct_githubId(){
+        assertEquals("junjiel123", Developer.getGithubId());
+    }
 
+    @Test
+    public void getTeam_returns_correct_members(){
+        Team t = Developer.getTeam();
+        assertTrue(t.getMembers().contains("Mihir"), "Team should contain Mihir");
+        assertTrue(t.getMembers().contains("Andrew"), "Team should contain Andrew");
+        assertTrue(t.getMembers().contains("Milad"), "Team should contain Milad");
+        assertTrue(t.getMembers().contains("Junjie"), "Team should contain Junjie");
+        assertTrue(t.getMembers().contains("Benjamin"), "Team should contain Benjamin");
+        assertTrue(t.getMembers().contains("Matthew"), "Team should contain Matthew");
+    }
+
+    @Test
+    public void getTeam_returns_team_with_correct_name(){
+        Team t = Developer.getTeam();
+        assertEquals("s25-10", t.getName());
+    }
 }

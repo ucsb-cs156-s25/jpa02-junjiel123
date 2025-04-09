@@ -19,7 +19,7 @@ public class Developer {
         // You may use just the name that is used on <https://bit.ly/cs156-s25-teams>
         // i.e. your first name, or your first and initial of last name
 
-        return "Junjie L.";
+        return "Junjie";
     }
 
     /**
